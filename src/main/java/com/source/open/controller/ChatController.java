@@ -27,10 +27,10 @@ public class ChatController {
 
 	private final RoomRepo roomRepo;
 	
-	@GetMapping("/")
-	public String home() {
-		return "<h1>Welcome to Chat Man API Home. Cheers...🚀</h1>";
-	}
+	// @GetMapping("/api/v1/home")
+	// public String home() {
+	// 	return "<h1>Welcome to Chat Man API Home. Cheers...🚀</h1>";
+	// }
 	
 	@MessageMapping("/sendMessage/{roomId}")
 	@SendTo("/topic/room/{roomId}")
