@@ -9,10 +9,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class MessageRequest {
+public class RoomRequest {
 
 	private String roomId;
-	private String from;
-	private String content;
-
+		
 }

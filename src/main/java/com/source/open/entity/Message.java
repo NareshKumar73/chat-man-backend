@@ -1,6 +1,9 @@
 package com.source.open.entity;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,18 +14,27 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+@Document(collection = "messages")
 public class Message {
 
-	private String sender;
+	@Id
+	private String id;
+	private String roomId;
+	private String from;
 	private String content;
-	private LocalDateTime timestamp;
+	private Instant at;
 	
-	public Message(String sender, String content) {
+	public Message(String roomId) {
 		super();
-		this.sender = sender;
-		this.content = content;
-		this.timestamp = LocalDateTime.now();
+		this.roomId = roomId;
 	}
 	
+	public Message(String roomId, String from, String content) {
+		super();
+		this.roomId = roomId;
+		this.from = from;
+		this.content = content;
+		this.at = Instant.now();
+	}
 	
 }
